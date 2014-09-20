@@ -6,12 +6,15 @@
     <script src="../javascripts/timer.js"></script>
     <script src="../javascripts/moment.min.js"></script>
 
+    <button onClick="timer.start(10)">Start</button>
+
+    <br>
+
     <canvas id="a_canvas" width="350" height="150"></canvas>
 
     <script>
       var canvas = document.getElementById('a_canvas');
       var timer = new Timer(canvas);
-      timer.start(10);
     </script>
 
   </body>
