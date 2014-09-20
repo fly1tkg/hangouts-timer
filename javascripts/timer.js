@@ -37,6 +37,10 @@ function Timer(canvas) {
              duration = 0;
              timerId = setInterval(getImage, 200);
            },
+    stop: function() {
+            clearInterval(timerId);
+            draw('00:00');
+          },
     addMinutes: function(minutes) {
                   duration += 60 * minutes;
                   draw(moment(duration * 1000).utc().format('mm:ss'));
