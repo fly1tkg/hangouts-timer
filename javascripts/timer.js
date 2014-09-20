@@ -21,7 +21,7 @@ function Timer(canvas) {
                 clear();
 
                 var now = moment();
-                var rest = goal.subtract(now);
+                var rest = moment(goal).subtract(now);
 
                 draw(rest.format('mm:ss'));
                 return canvas.toDataURL();
