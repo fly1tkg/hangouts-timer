@@ -1,21 +1,35 @@
 <html>
   <style type="text/css">
   </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
   <body>
 
     <script src="../javascripts/timer.js"></script>
     <script src="../javascripts/moment.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-    <button onClick="timer.start()">Start</button>
-    <button onClick="timer.stop()">Stop</button>
-    <button onClick="timer.addSeconds(1)">+1 second</button>
-    <button onClick="timer.addSeconds(10)">+10 seconds</button>
-    <button onClick="timer.addMinutes(1)">+1 minute</button>
-    <button onClick="timer.addMinutes(10)">+10 minutes</button>
+    <div class="container">
+      <h3>Timer</h3>
 
-    <br>
+      <p>
+        <button class="btn btn-primary" onClick="timer.start()">Start</button>
+        <button class="btn btn-danger" onClick="timer.stop()">Stop</button>
+      </p>
 
-    <canvas id="a_canvas" width="350" height="150"></canvas>
+      <p>
+        <button class="btn" onClick="timer.addSeconds(1)">+1 second</button>
+        <button class="btn" onClick="timer.addSeconds(10)">+10 seconds</button>
+      </p>
+
+      <p>
+        <button class="btn" onClick="timer.addMinutes(1)">+1 minute</button>
+        <button class="btn" onClick="timer.addMinutes(10)">+10 minutes</button>
+      </p>
+
+      <canvas id="a_canvas" width="350" height="150"></canvas>
+    </div>
+
 
     <script>
       var canvas = document.getElementById('a_canvas');
