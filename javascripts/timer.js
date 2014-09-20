@@ -5,7 +5,7 @@ function Timer(canvas) {
   var goal;
 
   function clear() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, - canvas.width, canvas.height);
   }
 
   function draw(text) {
