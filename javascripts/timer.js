@@ -18,10 +18,10 @@ function Timer(canvas) {
     clear();
 
     var now = moment();
+    var rest = goal.unix() - now.unix();
 
-    if (goal.unix() - now.unix() > 0) {
-      var rest = moment(goal).subtract(now);
-      draw(rest.format('mm:ss'));
+    if (rest > 0) {
+      draw(moment(rest * 1000).utc().format('mm:ss'));
     } else {
       clearInterval(timerId);
       draw('00:00');
