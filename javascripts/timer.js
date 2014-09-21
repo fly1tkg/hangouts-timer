@@ -3,20 +3,21 @@ function Timer(canvas, timerText) {
   var duration = 0;
   var goal;
   var timerId;
+  var prevImage;
 
   ctx.scale(-1, 1);
   draw('00:00');
 
   function clear() {
     ctx.clearRect(0, 0, - canvas.width, canvas.height);
-  }
+  };
 
   function draw(text) {
     clear();
     ctx.font = "20pt Arial";
     ctx.fillText(text, - canvas.width / 2, canvas.height / 2);
     timerText.text(text);
-  }
+  };
 
   function getImage() {
     var now = moment();
@@ -30,13 +31,26 @@ function Timer(canvas, timerText) {
     }
 
     return canvas.toDataURL();
-  }
+  };
+
+  function showImageToHangouts(dataUri) {
+    if (!test) {
+      var image = gapi.hangout.av.effects.createImageResource(dataUrl);
+      image.showOverlay();
+
+      if (prevImage) {
+        prevImage.dispose();
+      }
+
+      prevImage = image;
+    }
+  };
 
   return {
     start: function() {
              goal = moment().add(duration, 'second');
              duration = 0;
-             timerId = setInterval(getImage, 200);
+             timerId = setInterval(function () { showImageToHangouts(getImage()); }, 200);
            },
     stop: function() {
             clearInterval(timerId);
