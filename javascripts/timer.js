@@ -15,7 +15,7 @@ function Timer(canvas, timerText) {
   function draw(text) {
     clear();
     ctx.font = "20pt Arial";
-    ctx.fillText(text, - canvas.width / 2, canvas.height / 2);
+    ctx.fillText(text, - canvas.width / 2 - 40, canvas.height - 20 );
     timerText.text(text);
   };
 
