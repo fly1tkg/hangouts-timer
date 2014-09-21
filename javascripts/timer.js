@@ -34,8 +34,8 @@ function Timer(canvas, timerText) {
   };
 
   function showImageToHangouts(dataUri) {
-    if (!test) {
-      var image = gapi.hangout.av.effects.createImageResource(dataUrl);
+    if (typeof(test) === 'undefined') {
+      var image = gapi.hangout.av.effects.createImageResource(dataUri);
       image.showOverlay();
 
       if (prevImage) {
