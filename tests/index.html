@@ -5,12 +5,15 @@
 
   <body>
 
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="../javascripts/timer.js"></script>
     <script src="../javascripts/moment.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
     <div class="container">
       <h3>Timer</h3>
+
+      <h4 id="timerText">00:00</h4>
 
       <p>
         <button class="btn btn-primary" onClick="timer.start()">Start</button>
@@ -33,7 +36,8 @@
 
     <script>
       var canvas = document.getElementById('a_canvas');
-      var timer = new Timer(canvas);
+      var timerText = $('#timerText');
+      var timer = new Timer(canvas, timerText);
     </script>
 
   </body>

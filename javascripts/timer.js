@@ -1,4 +1,4 @@
-function Timer(canvas) {
+function Timer(canvas, timerText) {
   var ctx = canvas.getContext('2d');
   var duration = 0;
   var goal;
@@ -15,6 +15,7 @@ function Timer(canvas) {
     clear();
     ctx.font = "20pt Arial";
     ctx.fillText(text, - canvas.width / 2, canvas.height / 2);
+    timerText.text(text);
   }
 
   function getImage() {
