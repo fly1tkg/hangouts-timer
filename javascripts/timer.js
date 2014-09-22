@@ -27,6 +27,7 @@ function Timer(canvas, timerText) {
     } else {
       clearInterval(timerId);
       draw('00:00');
+      showNotice();
     }
 
     return canvas.toDataURL();
@@ -42,6 +43,12 @@ function Timer(canvas, timerText) {
       }
 
       prevImage = image;
+    }
+  };
+
+  function showNotice() {
+    if (typeof(test) === 'undefined') {
+      gapi.hangout.layout.displayNotice('TimeOver');
     }
   };
 
