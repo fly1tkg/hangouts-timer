@@ -37,19 +37,19 @@
       <h4 id="timerText">00:00</h4>
 
       <p>
-        <button class="btn btn-primary" onClick="timer.start()">Start</button>
-        <button class="btn btn-danger" onClick="timer.stop()">Stop</button>
-        <button class="btn btn-warning" onClick="timer.reset()">Reset</button>
+        <button id="start" class="btn btn-primary" onClick="start()">Start</button>
+        <button id="stop" class="btn btn-danger" onClick="stop()" disabled="true">Stop</button>
+        <button id="reset" class="btn btn-warning" onClick="timer.reset()">Reset</button>
       </p>
 
       <p>
-        <button class="btn" onClick="timer.addSeconds(1)">+1 second</button>
-        <button class="btn" onClick="timer.addSeconds(10)">+10 seconds</button>
+        <button id="add1Second" class="btn" onClick="timer.addSeconds(1)">+1 second</button>
+        <button id="add10Seconds" class="btn" onClick="timer.addSeconds(10)">+10 seconds</button>
       </p>
 
       <p>
-        <button class="btn" onClick="timer.addMinutes(1)">+1 minute</button>
-        <button class="btn" onClick="timer.addMinutes(10)">+10 minutes</button>
+        <button id="add1Minute" class="btn" onClick="timer.addMinutes(1)">+1 minute</button>
+        <button id="add10Minutes" class="btn" onClick="timer.addMinutes(10)">+10 minutes</button>
       </p>
 
       <canvas id="a_canvas" width="600" height="350" style="display:none;"></canvas>
@@ -58,6 +58,27 @@
 
     <script>
       var timer;
+
+      var controllButtons = [$('#start'), $('#reset'), $('#add1Second'), $('#add10Seconds'), $('#add1Minute'), $('#add10Minutes')];
+      var stopButton = $('#stop');
+
+      function start() {
+        stopButton.attr('disabled', false);
+        controllButtons.forEach(function(value) {
+          value.attr('disabled', true);
+        });
+
+        timer.start();
+      };
+
+      function stop() {
+        stopButton.attr('disabled', true);
+        controllButtons.forEach(function(value) {
+          value.attr('disabled', false);
+        });
+
+        timer.stop();
+      }
 
       var init = (function () {
         // When API is ready...
