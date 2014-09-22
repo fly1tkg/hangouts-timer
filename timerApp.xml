@@ -64,6 +64,9 @@
           function(eventObj) {
             if (eventObj.isApiReady) {
               console.log('ready');
+
+              gapi.hangout.av.setLocalParticipantVideoMirrored(false);
+
               var canvas = $('#a_canvas')[0];
               var timerText = $('#timerText');
               timer = new Timer(canvas, timerText);

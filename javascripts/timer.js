@@ -5,17 +5,16 @@ function Timer(canvas, timerText) {
   var timerId;
   var prevImage;
 
-  ctx.scale(-1, 1);
   draw('00:00');
 
   function clear() {
-    ctx.clearRect(0, 0, - canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
 
   function draw(text) {
     clear();
     ctx.font = "20pt Arial";
-    ctx.fillText(text, - canvas.width / 2 - 40, canvas.height - 20 );
+    ctx.fillText(text, canvas.width / 2 - 40, canvas.height - 20 );
     timerText.text(text);
   };
 
