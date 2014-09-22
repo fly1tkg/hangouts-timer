@@ -71,12 +71,15 @@
         timer.start();
       };
 
-      function stop() {
+      function disableButtons() {
         stopButton.attr('disabled', true);
         controllButtons.forEach(function(value) {
           value.attr('disabled', false);
         });
+      };
 
+      function stop() {
+        disableButtons();
         timer.stop();
       }
 
@@ -91,7 +94,7 @@
 
               var canvas = $('#a_canvas')[0];
               var timerText = $('#timerText');
-              timer = new Timer(canvas, timerText);
+              timer = new Timer(canvas, timerText, disableButtons);
             }
           }
         )

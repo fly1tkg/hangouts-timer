@@ -1,4 +1,4 @@
-function Timer(canvas, timerText) {
+function Timer(canvas, timerText, finish) {
   var ctx = canvas.getContext('2d');
   var duration = 0;
   var goal;
@@ -28,6 +28,7 @@ function Timer(canvas, timerText) {
       clearInterval(timerId);
       draw('00:00');
       showNotice();
+      finish();
     }
 
     return canvas.toDataURL();
